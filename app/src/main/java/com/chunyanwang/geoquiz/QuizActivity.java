@@ -1,5 +1,6 @@
 package com.chunyanwang.geoquiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button trueButton;
     private Button falseButton;
     private Button nextButton;
+    private Button cheatButton;
 
     private TextView questionTextView;
     private int currentViewIndex;
@@ -38,6 +40,7 @@ public class QuizActivity extends AppCompatActivity {
         falseButton = (Button)findViewById(R.id.false_button);
         nextButton = (Button)findViewById(R.id.next_button);
         questionTextView = (TextView)findViewById(R.id.question_text);
+        cheatButton = (Button) findViewById(R.id.cheat_button);
         updateQuestion();
 
         trueButton.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +65,14 @@ public class QuizActivity extends AppCompatActivity {
                 updateQuestion();
             }
         });
+
+        cheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(QuizActivity.this, CheatActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void updateQuestion() {
@@ -78,5 +89,11 @@ public class QuizActivity extends AppCompatActivity {
             messageResId = R.string.incorrect_toast;
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt(QUESTION_TEXT_INDEX_KEY, currentViewIndex);
     }
 }

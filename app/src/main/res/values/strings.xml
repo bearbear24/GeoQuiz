@@ -8,4 +8,8 @@
     <string name="question_ocean">The Pacific Ocean is larger than the Atlantic Ocean.</string>
     <string name="question_mideast">The Suez Canal connects the Red Sea and the indian Ocean.</string>
     <string name="question_africa">The source of the Nile River is in Egypt.</string>
+
+    <string name="cheat_button">Cheat</string>
+    <string name="cheat_warning_text">Are you sure you want to see the answer?</string>
+    <string name="show_cheat_button">Show</string>
 </resources>

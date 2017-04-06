@@ -9,6 +9,7 @@
     tools:context="com.chunyanwang.geoquiz.CheatActivity">
 
     <TextView
+        android:id="@+id/answer_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cheat_warning_text"/>
